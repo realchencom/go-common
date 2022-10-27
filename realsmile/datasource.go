@@ -13,8 +13,8 @@ type Datasource struct {
 	LogLevel logger.LogLevel
 }
 
-func (this *Datasource) GetMylSqlDB() (*gorm.DB, error) {
-
+func GetMylSqlDB() (*gorm.DB, error) {
+	var this *Datasource
 	if err := Con.Sub("datasource").Unmarshal(&this); err != nil {
 		panic(fmt.Errorf("unmarshal datasource conf failed, err:%s \n", err))
 	}
