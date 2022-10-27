@@ -1,0 +1,14 @@
+host:
+  ip: "192.168.0.199"
+  por: 7190
+
+log:
+  path: "logs/main.log"
+  level: "debug"
+  #console or file
+  output: "console,file"
+
+datasource:
+  mysql: "root:123@tcp(192.168.58.135:3306)/big_happy?charset=utf8mb4&parseTime=True&loc=Local"
+  Sqlite: "blog.sqlite"
+
