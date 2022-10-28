@@ -14,7 +14,7 @@ type Null struct {
 }
 
 type Result[T interface{}] struct {
-	InnerCode int
+	InnerCode int32
 	InnerMsg  *string
 	Msg       *string
 	Data      *T
