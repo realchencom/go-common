@@ -13,6 +13,8 @@ const (
 	DuplicationLoginName     = 10011
 	LoginNameFormat          = 10012
 	PasswordFormat           = 10013
+	// DatabaseConnectionError 数据库连接错误代码
+	DatabaseConnectionError = 1100
 	// SqlNotAffectedRow sql影响的行数为0，预期至少为1.
 	SqlNotAffectedRow = 11001
 
@@ -36,4 +38,5 @@ const (
 	RequestedFailedMsg           = "The service you requested failed! "
 	UnknownErrorMsg              = "An unknown error occurred in the service you called! "
 	MethodParamsErrorMsg         = "Wrong argument to function! "
+	DatabaseConnectionErrorMsg   = "Database connection error! "
 )
