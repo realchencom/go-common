@@ -5,9 +5,9 @@ import (
 )
 
 type Base struct {
-	ID         int64     `gorm:"primaryKey;column:id" json:"id"`
-	CreateDate time.Time `gorm:"comment:创建日期;not null" json:"createDate"`
-	Version    int32     `gorm:"comment:版本号;not null;default:1" json:"version"`
+	ID         int64      `gorm:"primaryKey;column:id" json:"id"`
+	CreateDate *time.Time `gorm:"comment:创建日期;not null" json:"createDate"`
+	Version    int32      `gorm:"comment:版本号;not null;default:1" json:"version"`
 }
 
 type Null struct {
