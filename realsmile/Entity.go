@@ -15,9 +15,9 @@ type Null struct {
 
 type Result[T any] struct {
 	InnerCode int
-	Msg       string
+	Msg       *string
 	Data      *T
-	Remark    string
+	Remark    *string
 }
 
 type PaginationResult[T any] struct {
