@@ -13,14 +13,14 @@ type Base struct {
 type Null struct {
 }
 
-type Result[T any] struct {
+type Result[T interface{}] struct {
 	InnerCode int
 	Msg       *string
 	Data      *T
 	Remark    *string
 }
 
-type PaginationResult[T any] struct {
+type PaginationResult[T interface{}] struct {
 	Result[T]
 	total int64
 }
