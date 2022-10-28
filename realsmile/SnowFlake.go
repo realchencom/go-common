@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// SnowFlake
 /**
  *  * Twitter_Snowflake
  *  * SnowFlake的结构如下(每部分用-分开):
