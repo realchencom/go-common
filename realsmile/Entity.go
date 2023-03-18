@@ -17,7 +17,7 @@ type Result[T interface{}] struct {
 	InnerCode int32  `json:"innerCode"`
 	InnerMsg  string `json:"innerMsg"`
 	Msg       string `json:"msg"`
-	Data      T      `json:"data"`
+	Data      *T     `json:"data"`
 	Remark    string `json:"remark"`
 }
 
