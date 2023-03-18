@@ -23,22 +23,22 @@ type codeMsg struct {
 	// SqlError sql执行出错
 	SqlError int32
 
-	TokenMsg                     *string
-	JsonErrorMsg                 *string
-	LoginNameFormatErrorMsg      *string
-	PasswordErrorMsg             *string
-	LoginNameOrPasswordErrorMsg  *string
-	SuccessMsg                   *string
-	ServiceErrorMsg              *string
-	DuplicationLoginNameMsg      *string
-	TokenExpiresMsg              *string
-	SqlNotAffectedRowMsg         *string
-	SqlNoSuchDataOnParametersMsg *string
-	SqlErrorMsg                  *string
-	RequestedFailedMsg           *string
-	UnknownErrorMsg              *string
-	MethodParamsErrorMsg         *string
-	DatabaseConnectionErrorMsg   *string
+	TokenMsg                     string
+	JsonErrorMsg                 string
+	LoginNameFormatErrorMsg      string
+	PasswordErrorMsg             string
+	LoginNameOrPasswordErrorMsg  string
+	SuccessMsg                   string
+	ServiceErrorMsg              string
+	DuplicationLoginNameMsg      string
+	TokenExpiresMsg              string
+	SqlNotAffectedRowMsg         string
+	SqlNoSuchDataOnParametersMsg string
+	SqlErrorMsg                  string
+	RequestedFailedMsg           string
+	UnknownErrorMsg              string
+	MethodParamsErrorMsg         string
+	DatabaseConnectionErrorMsg   string
 }
 
 func init() {
@@ -81,22 +81,22 @@ func init() {
 		// SqlError sql执行出错
 		SqlError: 11003,
 
-		TokenMsg:                     &TokenMsg,
-		JsonErrorMsg:                 &JsonErrorMsg,
-		LoginNameFormatErrorMsg:      &LoginNameFormatErrorMsg,
-		PasswordErrorMsg:             &PasswordErrorMsg,
-		LoginNameOrPasswordErrorMsg:  &LoginNameOrPasswordErrorMsg,
-		SuccessMsg:                   &SuccessMsg,
-		ServiceErrorMsg:              &ServiceErrorMsg,
-		DuplicationLoginNameMsg:      &DuplicationLoginNameMsg,
-		TokenExpiresMsg:              &TokenExpiresMsg,
-		SqlNotAffectedRowMsg:         &SqlNotAffectedRowMsg,
-		SqlNoSuchDataOnParametersMsg: &SqlNoSuchDataOnParametersMsg,
-		SqlErrorMsg:                  &SqlErrorMsg,
-		RequestedFailedMsg:           &RequestedFailedMsg,
-		UnknownErrorMsg:              &UnknownErrorMsg,
-		MethodParamsErrorMsg:         &MethodParamsErrorMsg,
-		DatabaseConnectionErrorMsg:   &DatabaseConnectionErrorMsg,
+		TokenMsg:                     TokenMsg,
+		JsonErrorMsg:                 JsonErrorMsg,
+		LoginNameFormatErrorMsg:      LoginNameFormatErrorMsg,
+		PasswordErrorMsg:             PasswordErrorMsg,
+		LoginNameOrPasswordErrorMsg:  LoginNameOrPasswordErrorMsg,
+		SuccessMsg:                   SuccessMsg,
+		ServiceErrorMsg:              ServiceErrorMsg,
+		DuplicationLoginNameMsg:      DuplicationLoginNameMsg,
+		TokenExpiresMsg:              TokenExpiresMsg,
+		SqlNotAffectedRowMsg:         SqlNotAffectedRowMsg,
+		SqlNoSuchDataOnParametersMsg: SqlNoSuchDataOnParametersMsg,
+		SqlErrorMsg:                  SqlErrorMsg,
+		RequestedFailedMsg:           RequestedFailedMsg,
+		UnknownErrorMsg:              UnknownErrorMsg,
+		MethodParamsErrorMsg:         MethodParamsErrorMsg,
+		DatabaseConnectionErrorMsg:   DatabaseConnectionErrorMsg,
 	}
 }
 
