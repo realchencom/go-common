@@ -19,6 +19,11 @@ func GetMylSqlDB() (*gorm.DB, error) {
 		panic(fmt.Errorf("unmarshal datasource conf failed, err:%s \n", err))
 	}
 	//返回不使用默认的日志文件
-	DB, err := gorm.Open(mysql.Open(this.Mysql), &gorm.Config{Logger: nil})
-	return DB, err
+
+	if DB, err := gorm.Open(mysql.Open(this.Mysql), &gorm.Config{Logger: nil}); err != nil {
+		Log.Errorf("Failed to get MySQL database: %v", err)
+		panic(fmt.Errorf("failed to get MySQL database: %v", err))
+	} else {
+		return DB, nil
+	}
 }
