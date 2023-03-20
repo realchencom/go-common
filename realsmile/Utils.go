@@ -4,16 +4,43 @@ import (
 	"fmt"
 	"os"
 	"reflect"
+	"strconv"
 )
 
-func Clone[T any](new *T, oValue *reflect.Value) {
+func Clone[N any](new *N, old interface{}) {
+	nType := reflect.TypeOf(*new)
 	nValue := reflect.ValueOf(new)
-	for i := 0; i < nValue.NumField(); i++ {
-		nType := nValue.Type()
-		name := nType.Field(i).Name
-		_, isExists := oValue.Type().FieldByName(name)
+	oValue := reflect.ValueOf(old)
+	for i := 0; i < nType.NumField(); i++ {
+		field := nType.Field(i)
+		name := field.Name
+
+		oField, isExists := oValue.Type().FieldByName(name)
 		if isExists {
-			nValue.Field(i).Set(oValue.FieldByName(name))
+			if nValue.Elem().FieldByName(name).CanSet() {
+				if oField.Type.Kind().String() == field.Type.Kind().String() {
+					nValue.Elem().FieldByName(name).Set(oValue.FieldByName(name))
+				} else {
+					switch oField.Type.Kind().String() {
+					case "string":
+						{
+							if val, err := strconv.ParseInt(oValue.FieldByName(name).String(), 10, 64); err != nil {
+								Log.Errorf("Error parsing oValue for field. %v: %v", name, err)
+								continue
+							} else {
+								nValue.Elem().FieldByName(name).SetInt(val)
+							}
+							break
+						}
+					case "int64":
+						{
+							nValue.Elem().FieldByName(name).SetString(strconv.FormatInt(oValue.FieldByName(name).Int(), 10))
+							break
+						}
+					}
+				}
+
+			}
 		} else {
 			continue
 		}
