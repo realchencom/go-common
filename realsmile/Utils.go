@@ -6,8 +6,7 @@ import (
 	"reflect"
 )
 
-func Clone(new *interface{}, old *interface{}) {
-	oValue := reflect.ValueOf(old)
+func Clone[T any](new *T, oValue *reflect.Value) {
 	nValue := reflect.ValueOf(new)
 	for i := 0; i < nValue.NumField(); i++ {
 		nType := nValue.Type()
