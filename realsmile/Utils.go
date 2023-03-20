@@ -8,6 +8,14 @@ import (
 )
 
 func Clone[N any](new *N, old interface{}) {
+	if *new == nil {
+		panic("new is nil")
+		return
+	}
+	if old == nil {
+		panic("old is nil")
+		return
+	}
 	nType := reflect.TypeOf(*new)
 	nValue := reflect.ValueOf(new)
 	oValue := reflect.ValueOf(old)
