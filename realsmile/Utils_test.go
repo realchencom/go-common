@@ -17,6 +17,12 @@ type Rule struct {
 }
 
 func TestClone(t *testing.T) {
+	news := &RuleVO{}
+	if news == nil {
+		panic("new is nil")
+		return
+	}
+
 	n1 := RuleVO{}
 	//n1 := RuleVO{}
 	n2 := Rule{
