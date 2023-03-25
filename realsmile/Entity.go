@@ -22,6 +22,18 @@ type Result[T interface{}] struct {
 }
 
 type PaginationResult[T interface{}] struct {
-	*Result[T]
-	total int64
+	Result[T]
+	Total int64 `json:"total"`
+}
+
+func GetPaginationResult[T interface{}]() *PaginationResult[T] {
+	return &PaginationResult[T]{
+		Result: Result[T]{InnerMsg: CodeMsg.SuccessMsg,
+			InnerCode: CodeMsg.Success},
+	}
+}
+func GetResult[T interface{}]() *Result[T] {
+	return &Result[T]{
+		InnerMsg:  CodeMsg.SuccessMsg,
+		InnerCode: CodeMsg.Success}
 }
