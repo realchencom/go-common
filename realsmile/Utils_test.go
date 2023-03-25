@@ -10,10 +10,12 @@ func TestWritePidFile(t *testing.T) {
 }
 
 type RuleVO struct {
-	ID string `json:"id"`
+	ID  string `json:"id"`
+	Age int64  `json:"age"`
 }
 type Rule struct {
-	ID int64 `json:"id"`
+	Base
+	Age int64 `json:"age"`
 }
 
 func TestClone(t *testing.T) {
@@ -23,12 +25,34 @@ func TestClone(t *testing.T) {
 		return
 	}
 
-	n1 := RuleVO{}
 	//n1 := RuleVO{}
-	n2 := Rule{
-		ID: 160345903935254528,
+	n1 := RuleVO{
+		ID:  "160345903935254528",
+		Age: 30,
 	}
-
-	Clone(&n1,
-		n2)
+	n2 := Rule{}
+	//n2 := Rule{
+	//	Base: Base{
+	//		ID: 160345903935254528,
+	//	},
+	//
+	//	Age: 32,
+	//}
+	//marshal, err := json.Marshal(n2)
+	//if err != nil {
+	//	return
+	//}
+	//n3 := Rule{}
+	//func(marshal []byte, v interface{}) {
+	//	if err := json.Unmarshal(marshal, v); err != nil {
+	//		Log.Debugf("%v", err)
+	//	}
+	//}(marshal, &n3)
+	//
+	//Log.Debugf("%v", marshal)
+	//Clone(&n1, n2)
+	//val := reflect.ValueOf(&n2)
+	//v1 := reflect.ValueOf(n1)
+	Clone(&n2, n1)
+	Log.Debug("d")
 }
