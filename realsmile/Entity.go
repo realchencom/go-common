@@ -22,6 +22,6 @@ type Result[T interface{}] struct {
 }
 
 type PaginationResult[T interface{}] struct {
-	Result[T]
+	*Result[T]
 	total int64
 }
