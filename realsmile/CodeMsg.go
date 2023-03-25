@@ -22,7 +22,8 @@ type codeMsg struct {
 	SqlNoSuchDataOnParameters int32
 	// SqlError sql执行出错
 	SqlError int32
-
+	//实体克隆出错
+	CloneError                   int32
 	TokenMsg                     string
 	JsonErrorMsg                 string
 	LoginNameFormatErrorMsg      string
@@ -35,6 +36,7 @@ type codeMsg struct {
 	SqlNotAffectedRowMsg         string
 	SqlNoSuchDataOnParametersMsg string
 	SqlErrorMsg                  string
+	CloneErrorMsg                string
 	RequestedFailedMsg           string
 	UnknownErrorMsg              string
 	MethodParamsErrorMsg         string
@@ -54,6 +56,7 @@ func init() {
 	SqlNotAffectedRowMsg := "The service you called was executed successfully, but the number of rows affected is zero! "
 	SqlNoSuchDataOnParametersMsg := "No data found based on the passed in parameters! "
 	SqlErrorMsg := "SQL execution error! "
+	CloneErrorMsg := "Clone Entity is error! "
 	RequestedFailedMsg := "The service you requested failed! "
 	UnknownErrorMsg := "An unknown error occurred in the service you called! "
 	MethodParamsErrorMsg := "Wrong argument to function! "
@@ -72,7 +75,7 @@ func init() {
 		LoginNameFormat:          10012,
 		PasswordFormat:           10013,
 		// DatabaseConnectionError 数据库连接错误代码
-		DatabaseConnectionError: 1100,
+		DatabaseConnectionError: 11000,
 		// SqlNotAffectedRow sql影响的行数为0，预期至少为1.
 		SqlNotAffectedRow: 11001,
 
@@ -80,7 +83,8 @@ func init() {
 		SqlNoSuchDataOnParameters: 11002,
 		// SqlError sql执行出错
 		SqlError: 11003,
-
+		//实体克隆出错
+		CloneError:                   20001,
 		TokenMsg:                     TokenMsg,
 		JsonErrorMsg:                 JsonErrorMsg,
 		LoginNameFormatErrorMsg:      LoginNameFormatErrorMsg,
@@ -93,6 +97,7 @@ func init() {
 		SqlNotAffectedRowMsg:         SqlNotAffectedRowMsg,
 		SqlNoSuchDataOnParametersMsg: SqlNoSuchDataOnParametersMsg,
 		SqlErrorMsg:                  SqlErrorMsg,
+		CloneErrorMsg:                CloneErrorMsg,
 		RequestedFailedMsg:           RequestedFailedMsg,
 		UnknownErrorMsg:              UnknownErrorMsg,
 		MethodParamsErrorMsg:         MethodParamsErrorMsg,
