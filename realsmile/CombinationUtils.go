@@ -3,6 +3,7 @@ package realsmile
 import (
 	"fmt"
 	"github.com/emirpasic/gods/lists/arraylist"
+	"github.com/pkg/errors"
 	"strconv"
 )
 
@@ -18,7 +19,7 @@ func (this *CombinationUtils) GetCombination(m, n int) (*arraylist.List, error) 
 	this.n = n
 	this.m = m
 	if n > m {
-		return nil, this
+		return nil, errors.New("m 中选取n个的排列组合")
 	}
 	flagArray := make([]int, m)
 
@@ -30,7 +31,7 @@ func (this *CombinationUtils) GetCombination(m, n int) (*arraylist.List, error) 
 		}
 	}
 	list := arraylist.New()
-	list.Add(this.checkEveryCombination(flagArray, m))
+	list.Add(this.getElement(&flagArray, m))
 	var bFind = true
 	for bFind {
 		bFind = false
@@ -53,7 +54,7 @@ func (this *CombinationUtils) GetCombination(m, n int) (*arraylist.List, error) 
 			}
 		}
 		if bFind {
-			list.Add(this.checkEveryCombination(flagArray, m))
+			list.Add(this.getElement(&flagArray, m))
 		}
 	}
 	return list, nil
@@ -62,17 +63,17 @@ func (this *CombinationUtils) Error() string {
 	return fmt.Sprintf("传入参数错误，M选N的组合，N ≤ M。%v ≤ %v", this.n, this.m)
 }
 
-func (this *CombinationUtils) checkEveryCombination(flagArray []int, m int) string {
+func (this *CombinationUtils) getElement(flagArray *[]int, m int) *string {
 	var result string
 	for index := 0; index < m; index++ {
-		if flagArray[index] == 1 {
+		if (*flagArray)[index] == 1 {
 			if len(result) > 0 {
 				result += ","
 			}
 			result += strconv.Itoa(index + 1)
 		}
 	}
-	return result
+	return &result
 }
 func (this *CombinationUtils) CombinationSize(m, n int) int {
 	if m < n {

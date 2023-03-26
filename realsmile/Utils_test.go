@@ -26,11 +26,11 @@ func TestClone(t *testing.T) {
 	}
 
 	//n1 := RuleVO{}
-	n1 := RuleVO{
-		ID:  "160345903935254528",
-		Age: 30,
-	}
-	n2 := Rule{}
+	//n1 := RuleVO{
+	//	ID:  "160345903935254528",
+	//	Age: 30,
+	//}
+	//n2 := Rule{}
 	//n2 := Rule{
 	//	Base: Base{
 	//		ID: 160345903935254528,
@@ -53,6 +53,13 @@ func TestClone(t *testing.T) {
 	//Clone(&n1, n2)
 	//val := reflect.ValueOf(&n2)
 	//v1 := reflect.ValueOf(n1)
-	Clone(&n2, n1)
-	Log.Debug("d")
+	//Clone(&n2, n1)
+	//Log.Debug("d")
+	size := Combination.CombinationSize(60, 2)
+	Log.Debug(size)
+	combination, err := Combination.GetCombination(60, 2)
+	if err != nil {
+		return
+	}
+	Log.Debug(combination)
 }
