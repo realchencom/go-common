@@ -24,6 +24,7 @@ type codeMsg struct {
 	SqlError int32
 	//实体克隆出错
 	CloneError                   int32
+	ServiceError                 int32
 	TokenMsg                     string
 	JsonErrorMsg                 string
 	LoginNameFormatErrorMsg      string
@@ -85,6 +86,7 @@ func init() {
 		SqlError: 11003,
 		//实体克隆出错
 		CloneError:                   20001,
+		ServiceError:                 20002,
 		TokenMsg:                     TokenMsg,
 		JsonErrorMsg:                 JsonErrorMsg,
 		LoginNameFormatErrorMsg:      LoginNameFormatErrorMsg,
