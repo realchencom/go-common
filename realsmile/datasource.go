@@ -27,3 +27,25 @@ func GetMylSqlDB() (*gorm.DB, error) {
 		return DB, nil
 	}
 }
+func Saves(DB *gorm.DB, slices []interface{}, size int) error {
+	//每组大小
+	amount := len(slices)    //总数
+	group := amount / size   //分组
+	surplus := amount % size //余数
+	if surplus != 0 {
+		group++
+	}
+	for i := 0; i < group; i++ {
+		var element interface{}
+		if (i + 1) == group {
+			element = slices[i*size : i*size+surplus]
+		} else {
+			element = slices[i*size : (i+1)*size]
+		}
+		tx := DB.Save(&element)
+		if tx.Error != nil {
+			return tx.Error
+		}
+	}
+	return nil
+}
