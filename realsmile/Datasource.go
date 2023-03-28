@@ -42,7 +42,7 @@ func Saves[T any](DB *gorm.DB, slices []T, size int) error {
 		} else {
 			element = slices[i*size : (i+1)*size]
 		}
-		tx := DB.Save(&element)
+		tx := DB.Save(element)
 		if tx.Error != nil {
 			return tx.Error
 		}
