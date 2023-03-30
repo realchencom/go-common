@@ -21,8 +21,16 @@ func GetMylSqlDB() (*gorm.DB, error) {
 	//返回不使用默认的日志文件
 
 	if DB, err := gorm.Open(mysql.Open(this.Mysql), &gorm.Config{Logger: nil}); err != nil {
-		Log.Errorf("Failed to get MySQL database: %v", err)
-		panic(fmt.Errorf("failed to get MySQL database: %v", err))
+		Log.Errorf("Failed to get MySQL database: %v !errorMsg:%v", this.Mysql, err)
+		panic(fmt.Errorf("failed to get MySQL database:  %v !errorMsg:%v", this.Mysql, err))
+	} else {
+		return DB, nil
+	}
+}
+func GetMylSqlByConStr(conStr string) (*gorm.DB, error) {
+	if DB, err := gorm.Open(mysql.Open(conStr), &gorm.Config{Logger: nil}); err != nil {
+		Log.Errorf("Failed to get MySQL database: %v !errorMsg:%v", conStr, err)
+		panic(fmt.Errorf("failed to get MySQL database: %v !errorMsg:%v", conStr, err))
 	} else {
 		return DB, nil
 	}
